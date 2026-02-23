@@ -10,7 +10,7 @@ export default function App() {
     <div className="min-h-screen bg-white font-sans scroll-smooth">
       <Helmet>
         <title>Alliance Health Network Corp. | Healthcare Staffing Across Canada</title>
-        <meta name="description" content="Alliance Health Network Corp. provides rapid, reliable healthcare staffing solutions for hospitals, long-term care homes, clinics, and private care clients across Canada." />
+        <meta name="description" content="Alliance Health Network Corp. is a leading healthcare staffing agency in Ontario and across Canada, providing licensed nurses, PSWs, and allied health professionals to hospitals, long-term care homes, and clinics with rapid 24/7 deployment." />
         <meta name="keywords" content="Healthcare Staffing Canada, Nursing Agency Ontario, PSW Staffing, Hospital Staffing Services, Healthcare Recruitment Canada, Healthcare Staffing London Ontario, LTC Staffing Agency Canada" />
         <meta name="author" content="Alliance Health Network Corp." />
         <meta name="robots" content="index, follow" />
@@ -29,7 +29,48 @@ export default function App() {
               "addressRegion": "Ontario",
               "addressCountry": "Canada"
             },
-            "areaServed": "Canada"
+            "areaServed": "Canada",
+            "sameAs": []
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How quickly can staffing be deployed?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Emergency healthcare staffing placements can often be coordinated within hours depending on role, province, and regulatory requirements."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Are your healthcare professionals licensed and verified?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "All nurses, PSWs, and allied health professionals undergo credential verification, licensing validation, background checks, and compliance screening before placement."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide WSIB and liability coverage?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Alliance Health Network maintains WSIB compliance and comprehensive liability insurance for institutional healthcare partners."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer long-term healthcare staffing contracts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. We provide structured long-term staffing agreements for hospitals, long-term care facilities, and clinics across Canada."
+                }
+              }
+            ]
           })}
         </script>
         <meta property="og:title" content="Alliance Health Network Corp." />
