@@ -277,25 +277,25 @@ export default function App() {
       {/* TESTIMONIALS SECTION */}
       <section className="py-20 px-6 bg-white text-center">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12">What Our Partners Say</h2>
+          <h2 className="text-4xl font-bold mb-12">Trusted by Healthcare Leaders Across Canada</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-8 bg-gray-50 rounded-2xl shadow-sm">
               <p className="text-gray-600 italic mb-4">
-                “Alliance Health Network provided urgent staffing support within hours. Their professionals were fully prepared and integrated seamlessly into our team.”
+                “Alliance Health Network reduced our vacancy coverage gap by over 35% within the first quarter. Their clinicians arrived credentialed, confident, and ready to integrate immediately into our care teams.”
               </p>
-              <p className="font-semibold">— Long-Term Care Administrator, Ontario</p>
+              <p className="font-semibold">— Executive Director, Long-Term Care Facility (Ontario)</p>
             </div>
             <div className="p-8 bg-gray-50 rounded-2xl shadow-sm">
               <p className="text-gray-600 italic mb-4">
-                “Reliable, compliant, and responsive. Their coordination team is available 24/7 and truly understands institutional needs.”
+                “Their 24/7 coordination model eliminated last‑minute scheduling crises for our hospital units. Compliance documentation and onboarding standards exceeded expectations.”
               </p>
-              <p className="font-semibold">— Hospital Operations Manager</p>
+              <p className="font-semibold">— Hospital Operations Director (Acute Care)</p>
             </div>
             <div className="p-8 bg-gray-50 rounded-2xl shadow-sm">
               <p className="text-gray-600 italic mb-4">
-                “Professional clinicians who meet provincial standards and elevate patient care quality.”
+                “Alliance Health Network delivers professionals who meet rigorous provincial standards while maintaining exceptional patient-centered care outcomes.”
               </p>
-              <p className="font-semibold">— Clinical Director</p>
+              <p className="font-semibold">— Regional Clinical Director</p>
             </div>
           </div>
         </div>
@@ -372,17 +372,42 @@ export default function App() {
       <section id="staffing" className="py-20 px-6 bg-red-700 text-white text-center scroll-mt-24">
         <h2 className="text-4xl font-bold mb-6">Request Staffing Support</h2>
         <p className="mb-8 text-lg">
-          Contact our coordination team directly to discuss urgent or scheduled staffing needs.
+          Submit your staffing request for immediate response from our 24/7 coordination team. We provide emergency deployment, short-term contracts, and long-term workforce partnerships.
         </p>
         <a
           href="mailto:staffing@alliancehealthnetwork.ca?subject=Staffing Request"
           className="bg-white text-red-700 px-8 py-4 rounded-lg font-semibold shadow hover:bg-gray-100 transition"
         >
-          Email Staffing Team
+          Submit Staffing Request
         </a>
       </section>
 
-            {/* CONTACT SECTION */}
+      {/* FAQ SECTION */}
+      <section className="py-20 px-6 bg-white text-center">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12">Frequently Asked Questions</h2>
+          <div className="space-y-8 text-left">
+            <div>
+              <h3 className="font-semibold text-xl mb-2">How quickly can staffing be deployed?</h3>
+              <p className="text-gray-600">Emergency placements can often be coordinated within hours, depending on role, region, and regulatory requirements.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-xl mb-2">Are your professionals licensed and verified?</h3>
+              <p className="text-gray-600">Yes. All clinicians undergo credential verification, licensing validation, background checks, and compliance screening before placement.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-xl mb-2">Do you provide WSIB and liability coverage?</h3>
+              <p className="text-gray-600">Alliance Health Network maintains WSIB compliance and comprehensive liability insurance for institutional protection.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-xl mb-2">Do you offer long-term workforce partnerships?</h3>
+              <p className="text-gray-600">Yes. We provide structured long-term staffing agreements to stabilize workforce gaps and support operational continuity.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
       <section id="contact" className="py-20 px-6 bg-black text-white scroll-mt-24">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 text-left">
           <div>
