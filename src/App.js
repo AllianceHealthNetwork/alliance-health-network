@@ -3,10 +3,42 @@
 // Clean + Professional Hero Section with Logo (Public Folder Method)
 
 import React from "react";
+import { Helmet } from "react-helmet";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-white font-sans scroll-smooth">
+      <Helmet>
+        <title>Alliance Health Network Corp. | Healthcare Staffing Across Canada</title>
+        <meta name="description" content="Alliance Health Network Corp. provides rapid, reliable healthcare staffing solutions for hospitals, long-term care homes, clinics, and private care clients across Canada." />
+        <meta name="keywords" content="Healthcare Staffing Canada, Nursing Agency Ontario, PSW Staffing, Hospital Staffing Services, Healthcare Recruitment Canada, Healthcare Staffing London Ontario, LTC Staffing Agency Canada" />
+        <meta name="author" content="Alliance Health Network Corp." />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:site_name" content="Alliance Health Network Corp." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            "name": "Alliance Health Network Corp.",
+            "url": "https://alliancehealthnetwork.ca",
+            "telephone": "+1-519-300-4435",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "London",
+              "addressRegion": "Ontario",
+              "addressCountry": "Canada"
+            },
+            "areaServed": "Canada"
+          })}
+        </script>
+        <meta property="og:title" content="Alliance Health Network Corp." />
+        <meta property="og:description" content="Canada’s Premier Healthcare Staffing Partner." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://alliancehealthnetwork.ca" />
+        <meta property="og:image" content="/logo.png" />
+        <link rel="canonical" href="https://alliancehealthnetwork.ca" />
+      </Helmet>
       {/* NAVIGATION BAR */}
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -238,6 +270,54 @@ export default function App() {
                 <li>• Western Canada (Future Phase)</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="py-20 px-6 bg-white text-center">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-12">What Our Partners Say</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 bg-gray-50 rounded-2xl shadow-sm">
+              <p className="text-gray-600 italic mb-4">
+                “Alliance Health Network provided urgent staffing support within hours. Their professionals were fully prepared and integrated seamlessly into our team.”
+              </p>
+              <p className="font-semibold">— Long-Term Care Administrator, Ontario</p>
+            </div>
+            <div className="p-8 bg-gray-50 rounded-2xl shadow-sm">
+              <p className="text-gray-600 italic mb-4">
+                “Reliable, compliant, and responsive. Their coordination team is available 24/7 and truly understands institutional needs.”
+              </p>
+              <p className="font-semibold">— Hospital Operations Manager</p>
+            </div>
+            <div className="p-8 bg-gray-50 rounded-2xl shadow-sm">
+              <p className="text-gray-600 italic mb-4">
+                “Professional clinicians who meet provincial standards and elevate patient care quality.”
+              </p>
+              <p className="font-semibold">— Clinical Director</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICE AREA MAP SECTION */}
+      <section className="py-20 px-6 bg-gray-50 text-center">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6">Our Service Area</h2>
+          <p className="text-gray-600 mb-10">
+            Headquartered in London, Ontario, serving healthcare facilities across Canada.
+          </p>
+          <div className="rounded-2xl overflow-hidden shadow-lg">
+            <iframe
+              title="Alliance Health Network Service Area"
+              src="https://www.google.com/maps?q=London,Ontario,Canada&output=embed"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </section>
