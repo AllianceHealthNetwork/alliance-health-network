@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/alliance-health-network/static/css/main.14ac17de.css",
+    "main.js": "/alliance-health-network/static/js/main.11498a15.js",
+    "index.html": "/alliance-health-network/index.html",
+    "main.14ac17de.css.map": "/alliance-health-network/static/css/main.14ac17de.css.map",
+    "main.11498a15.js.map": "/alliance-health-network/static/js/main.11498a15.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14ac17de.css",
+    "static/js/main.11498a15.js"
+  ]
+}
