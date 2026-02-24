@@ -157,7 +157,7 @@ export default function App() {
       <section className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-6 py-6 text-center">
           <p className="text-gray-700 font-medium tracking-wide">
-            Serving Hospitals • Long-Term Care Facilities • Clinics • Private Care Clients Across Canada
+            Serving Hospitals • Long-Term Care Facilities • Clinics • Private In‑Home Care Clients Across Canada
           </p>
         </div>
       </section>
@@ -166,14 +166,11 @@ export default function App() {
       <section id="about" className="py-20 px-6 bg-gray-50 text-center scroll-mt-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-6">
-            Rapid, Reliable Healthcare Staffing Across Canada
+            Professional In‑Home Care & Healthcare Staffing Across Canada
           </h2>
 
           <p className="text-lg text-gray-600 leading-relaxed">
-            Alliance Health Network provides emergency, short-term, and long-term
-            staffing solutions to hospitals, long-term care homes, clinics, and
-            community healthcare facilities. Our professionals are fully
-            credentialed, WSIB compliant, and ready to deploy 24/7.
+            Alliance Health Network provides professional in‑home caregivers, personal support workers, and licensed nurses for families who need trusted care at home, as well as staffing solutions for hospitals, long-term care homes, clinics, and community healthcare facilities. Our professionals are fully credentialed, insured, WSIB compliant, and ready to support clients 24/7.
           </p>
         </div>
       </section>
@@ -204,14 +201,13 @@ export default function App() {
       {/* WHY CHOOSE US SECTION */}
       <section id="why" className="py-16 px-6 bg-gray-50 text-center scroll-mt-24">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Why Healthcare Facilities Choose Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Why Families & Healthcare Facilities Choose Us</h2>
 
           <div className="grid md:grid-cols-3 gap-10">
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-3">24/7 Rapid Deployment</h3>
               <p className="text-gray-600">
-                Immediate staffing support for urgent shortages and planned coverage gaps
-                across Ontario, Newfoundland and Labrador, and expanding Canadian provinces.
+                Immediate caregiver or staffing support for urgent family needs, hospital shortages, and planned coverage gaps across Ontario and expanding Canadian provinces.
               </p>
             </div>
 
@@ -411,16 +407,45 @@ export default function App() {
 
       {/* FOOTER */}
       <section id="staffing" className="py-20 px-6 bg-red-700 text-white text-center scroll-mt-24">
-        <h2 className="text-4xl font-bold mb-6">Request Staffing Support</h2>
+        <h2 className="text-4xl font-bold mb-6">Request Care or Staffing Support</h2>
         <p className="mb-8 text-lg">
-          Submit your staffing request for immediate response from our 24/7 coordination team. We provide emergency deployment, short-term contracts, and long-term workforce partnerships.
+          Submit your request for in‑home care or facility staffing and receive a prompt response from our 24/7 coordination team. We provide emergency caregiver support, short-term relief care, transportation assistance, and long-term workforce partnerships.
         </p>
-        <a
-          href="mailto:staffing@alliancehealthnetwork.ca?subject=Staffing Request"
-          className="bg-white text-red-700 px-8 py-4 rounded-lg font-semibold shadow hover:bg-gray-100 transition"
-        >
-          Submit Staffing Request
-        </a>
+        <form action="https://formspree.io/f/yourformid" method="POST" className="max-w-3xl mx-auto bg-white text-black p-8 rounded-2xl shadow-lg space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <input type="text" placeholder="Full Name" className="p-3 border rounded-lg w-full" required />
+            <input type="text" placeholder="Organization / Family Name" className="p-3 border rounded-lg w-full" required />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <input type="email" placeholder="Email Address" className="p-3 border rounded-lg w-full" required />
+            <input type="tel" placeholder="Phone Number" className="p-3 border rounded-lg w-full" required />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <select className="p-3 border rounded-lg w-full" required>
+              <option value="">Service Type</option>
+              <option>In-Home Care</option>
+              <option>Facility Staffing</option>
+            </select>
+            <select className="p-3 border rounded-lg w-full" required>
+              <option value="">Urgency Level</option>
+              <option>Emergency (Within 24 Hours)</option>
+              <option>Short-Term Coverage</option>
+              <option>Long-Term Support</option>
+            </select>
+          </div>
+
+          <textarea placeholder="Brief Description of Care or Staffing Needs" rows="4" className="p-3 border rounded-lg w-full" required></textarea>
+
+          <button type="submit" className="bg-red-700 text-white px-8 py-4 rounded-lg font-semibold shadow hover:bg-red-800 transition w-full">
+            Submit Request
+          </button>
+
+          <p className="text-sm text-gray-500 text-center">
+            After submission, our coordination team will contact you within 24 hours.
+          </p>
+        </form>
       </section>
 
       {/* FAQ SECTION */}
