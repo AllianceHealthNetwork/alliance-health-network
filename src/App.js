@@ -411,41 +411,7 @@ export default function App() {
         <p className="mb-8 text-lg">
           Submit your request for in‑home care or facility staffing and receive a prompt response from our 24/7 coordination team. We provide emergency caregiver support, short-term relief care, transportation assistance, and long-term workforce partnerships.
         </p>
-        <form action="https://formspree.io/f/yourformid" method="POST" className="max-w-3xl mx-auto bg-white text-black p-8 rounded-2xl shadow-lg space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
-            <input type="text" placeholder="Full Name" className="p-3 border rounded-lg w-full" required />
-            <input type="text" placeholder="Organization / Family Name" className="p-3 border rounded-lg w-full" required />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <input type="email" placeholder="Email Address" className="p-3 border rounded-lg w-full" required />
-            <input type="tel" placeholder="Phone Number" className="p-3 border rounded-lg w-full" required />
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <select className="p-3 border rounded-lg w-full" required>
-              <option value="">Service Type</option>
-              <option>In-Home Care</option>
-              <option>Facility Staffing</option>
-            </select>
-            <select className="p-3 border rounded-lg w-full" required>
-              <option value="">Urgency Level</option>
-              <option>Emergency (Within 24 Hours)</option>
-              <option>Short-Term Coverage</option>
-              <option>Long-Term Support</option>
-            </select>
-          </div>
-
-          <textarea placeholder="Brief Description of Care or Staffing Needs" rows="4" className="p-3 border rounded-lg w-full" required></textarea>
-
-          <button type="submit" className="bg-red-700 text-white px-8 py-4 rounded-lg font-semibold shadow hover:bg-red-800 transition w-full">
-            Submit Request
-          </button>
-
-          <p className="text-sm text-gray-500 text-center">
-            After submission, our coordination team will contact you within 24 hours.
-          </p>
-        </form>
+        {/* Contact form temporarily removed */}
       </section>
 
       {/* FAQ SECTION */}
