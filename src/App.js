@@ -2,8 +2,230 @@
 // 🔥 COMPLETE SIMPLE RESET VERSION
 // Clean + Professional Hero Section with Logo (Public Folder Method)
 
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { Helmet } from "react-helmet";
+import emailjs from "@emailjs/browser";
+
+function RequestSupportForm() {
+  // ✅ EmailJS setup (uses env vars if present; falls back to your provided IDs)
+  const emailJsConfig = useMemo(
+    () => ({
+      serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID || "service_7xfwp0h",
+      templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "template_e2enayf",
+      publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "mF9KKdYhvSzwfFUV2",
+    }),
+    []
+  );
+
+  const [form, setForm] = useState({
+    requestType: "Facility Staffing",
+    organization: "",
+    contactName: "",
+    email: "",
+    phone: "",
+    province: "Ontario",
+    city: "",
+    details: "",
+  });
+
+  const [status, setStatus] = useState({ state: "idle", message: "" });
+
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ state: "loading", message: "Sending…" });
+
+    // These names should match the variables in your EmailJS template
+    const templateParams = {
+      request_type: form.requestType,
+      organization: form.organization,
+      contact_name: form.contactName,
+      reply_to: form.email,
+      phone: form.phone,
+      province: form.province,
+      city: form.city,
+      message: form.details,
+      website: "alliancehealthnetwork.ca",
+    };
+
+    try {
+      await emailjs.send(
+        emailJsConfig.serviceId,
+        emailJsConfig.templateId,
+        templateParams,
+        { publicKey: emailJsConfig.publicKey }
+      );
+
+      setStatus({ state: "success", message: "Thanks! Your request has been sent successfully." });
+      setForm((prev) => ({
+        ...prev,
+        organization: "",
+        contactName: "",
+        email: "",
+        phone: "",
+        city: "",
+        details: "",
+      }));
+    } catch (err) {
+      setStatus({
+        state: "error",
+        message:
+          "Sorry — the message didn't send. Please call (519) 300-4435 or email info@alliancehealthnetwork.ca.",
+      });
+    }
+  };
+
+  return (
+    <div className="bg-white/10 backdrop-blur rounded-2xl p-6 md:p-8 text-left shadow-lg">
+      <form onSubmit={onSubmit} className="grid md:grid-cols-2 gap-4">
+        <div className="md:col-span-2">
+          <label className="block text-sm font-semibold mb-2">Request Type</label>
+          <select
+            name="requestType"
+            value={form.requestType}
+            onChange={onChange}
+            className="w-full rounded-lg p-3 text-gray-900"
+            required
+          >
+            <option>Facility Staffing</option>
+            <option>Private In‑Home Care</option>
+            <option>Transportation Support</option>
+            <option>Allied Health Support</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold mb-2">Organization / Facility (optional)</label>
+          <input
+            name="organization"
+            value={form.organization}
+            onChange={onChange}
+            placeholder="e.g., ABC Hospital / Family Name"
+            className="w-full rounded-lg p-3 text-gray-900"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold mb-2">Contact Name</label>
+          <input
+            name="contactName"
+            value={form.contactName}
+            onChange={onChange}
+            placeholder="Full name"
+            className="w-full rounded-lg p-3 text-gray-900"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold mb-2">Email</label>
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={onChange}
+            placeholder="you@email.com"
+            className="w-full rounded-lg p-3 text-gray-900"
+            required
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold mb-2">Phone (optional)</label>
+          <input
+            name="phone"
+            value={form.phone}
+            onChange={onChange}
+            placeholder="(519) 300‑4435"
+            className="w-full rounded-lg p-3 text-gray-900"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold mb-2">Province</label>
+          <select
+            name="province"
+            value={form.province}
+            onChange={onChange}
+            className="w-full rounded-lg p-3 text-gray-900"
+            required
+          >
+            <option>Ontario</option>
+            <option>Newfoundland and Labrador</option>
+            <option>Nova Scotia</option>
+            <option>New Brunswick</option>
+            <option>Prince Edward Island</option>
+            <option>Quebec</option>
+            <option>Manitoba</option>
+            <option>Saskatchewan</option>
+            <option>Alberta</option>
+            <option>British Columbia</option>
+            <option>Nunavut</option>
+            <option>Northwest Territories</option>
+            <option>Yukon</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold mb-2">City</label>
+          <input
+            name="city"
+            value={form.city}
+            onChange={onChange}
+            placeholder="City"
+            className="w-full rounded-lg p-3 text-gray-900"
+            required
+          />
+        </div>
+
+        <div className="md:col-span-2">
+          <label className="block text-sm font-semibold mb-2">Details</label>
+          <textarea
+            name="details"
+            value={form.details}
+            onChange={onChange}
+            placeholder="Tell us what you need (role, dates, shift times, level of care, etc.)"
+            rows={5}
+            className="w-full rounded-lg p-3 text-gray-900"
+            required
+          />
+        </div>
+
+        <div className="md:col-span-2 flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-2">
+          <button
+            type="submit"
+            disabled={status.state === "loading"}
+            className="bg-white text-red-700 font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {status.state === "loading" ? "Sending…" : "Submit Request"}
+          </button>
+
+          {status.state !== "idle" && (
+            <p
+              className={`text-sm ${
+                status.state === "success"
+                  ? "text-green-200"
+                  : status.state === "error"
+                  ? "text-yellow-200"
+                  : "text-white/90"
+              }`}
+            >
+              {status.message}
+            </p>
+          )}
+        </div>
+
+        <p className="md:col-span-2 mt-2 text-xs text-white/80">
+          By submitting, you consent to being contacted about your request. For emergencies, call instead.
+        </p>
+      </form>
+    </div>
+  );
+}
 
 export default function App() {
   return (
@@ -405,13 +627,31 @@ export default function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* REQUEST SUPPORT SECTION */}
       <section id="staffing" className="py-20 px-6 bg-red-700 text-white text-center scroll-mt-24">
-        <h2 className="text-4xl font-bold mb-6">Request Care or Staffing Support</h2>
-        <p className="mb-8 text-lg">
-          Submit your request for in‑home care or facility staffing and receive a prompt response from our 24/7 coordination team. We provide emergency caregiver support, short-term relief care, transportation assistance, and long-term workforce partnerships.
-        </p>
-        {/* Contact form temporarily removed */}
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold mb-6">Request Care or Staffing Support</h2>
+          <p className="mb-10 text-lg opacity-95">
+            Tell us what you need and our coordination team will respond quickly. For urgent requests, please call.
+          </p>
+
+          <RequestSupportForm />
+
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="tel:5193004435"
+              className="bg-white text-red-700 font-semibold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition"
+            >
+              Call (519) 300-4435
+            </a>
+            <a
+              href="mailto:info@alliancehealthnetwork.ca?subject=Request%20Support"
+              className="border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-700 transition"
+            >
+              Email info@alliancehealthnetwork.ca
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* FAQ SECTION */}
